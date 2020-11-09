@@ -1,13 +1,12 @@
 import React, { Component } from 'react'
 import { Switch, Route, Redirect } from 'react-router'
-import Login from './Components/Login'
+import Login from './Containers/Login'
 import cookie from "cookie";
-import Details from './Components/Details'
-import AddListing from './Components/AddListing'
+import Details from './Containers/Details'
+import AddListing from './Containers/AddListing'
 import Listing from './Containers/Listing'
-// import { Reddit } from '@material-ui/icons'
 
-const checkAuth = () => {
+export const checkAuth = () => {
     const cookies = cookie.parse(document.cookie);
     return cookies["loggedIn"] ? true : false;
 };
@@ -29,7 +28,7 @@ const Router = () => {
             <Route exact path="/" component={Listing} />
             <Route path="/Login" component={Login} />
             <ProtectedRoute path="/AddListing" component={AddListing} />
-            <ProtectedRoute path="/Details" component={Details} />
+            <Route path="/Details/:id" component={Details} />
         </Switch>
     );
 };

@@ -6,6 +6,7 @@ import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
 import { Link } from 'react-router-dom'
 // import Button from '@material-ui/core/Button'
+import { checkAuth } from '../Router'
 
 const useStyles = makeStyles(() =>
   createStyles({
@@ -24,7 +25,7 @@ const useStyles = makeStyles(() =>
   })
 );
 
-const NavBar = () => {
+const NavBar = (props) => {
   const classes = useStyles();
 
   return (
@@ -45,9 +46,24 @@ const NavBar = () => {
                     <li className="nav-list-item">
                         <Link to="/">Listings</Link>
                     </li>
+                    {checkAuth() && (
+                        <li className="nav-list-item">
+                            <Link to="/AddListing">Add Restaurant</Link>
+                        </li>
+                    )}
+                    {checkAuth() ? (
+                         <li className="nav-list-item"
+                         onClick={() => {
+                             document.cookie = "loggedIn="
+                             window.location.replace("/login")
+                         }} >
+                             <Link to="/login">Logout</Link>
+                         </li>
+                    ) : (
                     <li className="nav-list-item">
                         <Link to="/Login">Login</Link>
                     </li>
+                      )}
                 </ul>
         </Toolbar>
       </AppBar>

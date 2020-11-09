@@ -8,6 +8,8 @@ import {
     TableRow
 } from '@material-ui/core'
 import DeleteIcon from '@material-ui/icons/Delete'
+import checkAuth from "../Router"
+import removeListing from '../Redux/Actions'
 // import AddListing from '../Containers/AddListing'
 
 // const Listing = (props) => {
@@ -18,7 +20,9 @@ import DeleteIcon from '@material-ui/icons/Delete'
 const Listing = (props) => {
     return (
         <Container maxWidth="lg" className="car-container">
-            <h4>Welcome, {props.user}</h4>
+            {props.loggedIn && 
+            <h4>Welcome, {props.user.user}</h4>
+                }
             <div className="flex-container">
             </div>
             <Table>
@@ -40,13 +44,13 @@ const Listing = (props) => {
                         <TableCell>{listing.details}</TableCell>
                         <TableCell>{listing.hours}</TableCell>
                         <TableCell>{listing.address}</TableCell>
+                        {checkAuth() && (
                                   <TableCell>
-                                  <DeleteIcon
-                                      // add onClick method here
-                                      onClick={() => props.removeListing(idx)}
-                                      className="icon text-red" />
-                               
+                         <DeleteIcon
+                          onClick={() => props.removeListing(idx)}
+                         className="icon text-red" />
                               </TableCell>
+                              )}
                     </TableRow>
                 ))}
                 </TableBody>

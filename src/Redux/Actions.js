@@ -13,3 +13,10 @@ export const removeListing = (index) => {
         value: index
     }
 }
+
+export const userLogin = (user) => {
+    return {
+        type: 'USER_LOGIN', 
+        value: user
+    }
+}

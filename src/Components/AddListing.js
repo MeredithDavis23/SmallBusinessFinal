@@ -7,6 +7,8 @@ import {
     DialogTitle
 } from '@material-ui/core'
 
+import GoogleMapsContainer from './Map'
+
 class AddListing extends Component {
     state = {
         open: false,
@@ -50,6 +52,7 @@ class AddListing extends Component {
 
     render() {
         return (
+            <div>
             <Fragment>
                 <div style={{ textAlign: 'center' }}>
                     <h1>Add Restaurant:</h1>
@@ -99,6 +102,8 @@ class AddListing extends Component {
                     </Dialog>
                 </div>
             </Fragment>
+            <GoogleMapsContainer />
+            </div>
         )
     }
 }

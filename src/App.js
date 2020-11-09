@@ -7,6 +7,8 @@ import store from "./Redux/Store"
 import NavBar from './Components/NavBar'
 import Router from './Router'
 
+require('dotenv').config()
+
 function App() {
   return (
     <div className="App">
