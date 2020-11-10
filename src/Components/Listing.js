@@ -9,6 +9,7 @@ import {
 } from '@material-ui/core'
 import DeleteIcon from '@material-ui/icons/Delete'
 import checkAuth from "../Router"
+import { Link } from "react-router-dom";
 import removeListing from '../Redux/Actions'
 // import AddListing from '../Containers/AddListing'
 
@@ -40,7 +41,11 @@ const Listing = (props) => {
                         <TableCell component="th" scope="row">
                             {listing.id}
                         </TableCell>
-                        <TableCell>{listing.name}</TableCell>
+                        <TableCell>
+                            <Link to={`/Details/${listing.id}`} className='listingLink'>
+                                {listing["name"]}
+                            </Link>
+                        </TableCell>
                         <TableCell>{listing.details}</TableCell>
                         <TableCell>{listing.hours}</TableCell>
                         <TableCell>{listing.address}</TableCell>
