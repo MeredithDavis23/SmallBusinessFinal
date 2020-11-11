@@ -6,8 +6,8 @@ const AnyReactComponent = ({ text }) => <div>{text}</div>;
 class GoogleMapsContainer extends Component {
   static defaultProps = {
     center: {
-      lat: 59.95,
-      lng: 30.33
+      lat: 30.2672,
+      lng: -97.7431
     },
     zoom: 11
   };
@@ -35,6 +35,34 @@ class GoogleMapsContainer extends Component {
 }
  
 export default GoogleMapsContainer;
+
+
+// const GoogleMapsContainer = (props) => {
+  
+//   const defaultProps = {
+//       lat: props.lat,
+//       lng: props.lng
+//   };
+ 
+//     return (
+//       // Important! Always set the container height explicitly
+//       <div className="map">
+//       <div style={{ height: '65vh', width: '75%' }}>
+//       <LoadScript googleMapsApiKey={process.env.REACT_APP_API_KEY}>
+//       <GoogleMap zoom={15} center={defaultProps}>
+//           <Marker
+//             lat={props.lat}
+//             lng={props.lng}
+//             text="My Marker"
+//           />
+//          </GoogleMap>
+//         </LoadScript>
+//       </div>
+//       </div>
+//     );
+//   }
+
+// export default GoogleMapsContainer;
 
 
 

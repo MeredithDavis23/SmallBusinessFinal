@@ -1,12 +1,11 @@
-import React, {useEffect} from "react";
+import React from "react";
 import { createStyles, makeStyles} from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
-import IconButton from "@material-ui/core/IconButton";
+// import IconButton from "@material-ui/core/IconButton";
 import { Link } from 'react-router-dom'
-// import NavBar from '../Containers/NavBar'
-// import Button from '@material-ui/core/Button'
+
 import { checkAuth } from '../checkAuth'
 
 const useStyles = makeStyles(() =>
@@ -29,10 +28,7 @@ const useStyles = makeStyles(() =>
 const NavBar = (props) => {
   const classes = useStyles();
 
-  useEffect(() => {
-    console.log(typeof props.user);
-    console.log(checkAuth())
-  });
+
 
 
   return (
@@ -40,13 +36,13 @@ const NavBar = (props) => {
     <div className={classes.root}>
       <AppBar position="relative">
         <Toolbar>
-          <IconButton
+          {/* <IconButton
             edge="start"
             className={classes.menuButton}
             color="#4040a1"
             aria-label="menu"
           >
-          </IconButton>
+          </IconButton> */}
           <Typography variant="h6" className={classes.title} id="title">
             Austin Small Business 
           </Typography>
@@ -54,19 +50,19 @@ const NavBar = (props) => {
                     <li className="nav-list-item">
                         <Link to="/">Listings</Link>
                     </li>
-                    {checkAuth() && (
+                    { checkAuth() && (
                         <li className="nav-list-item">
                             <Link to="/AddListing">Add Restaurant</Link>
                         </li>
                     )}
-                    {checkAuth() ? (
+                    { checkAuth() ? (
                          <li className="nav-list-item"
                          onClick={() => {
                              document.cookie = "loggedIn="
-                             window.location.replace("/login")
+                             window.location.replace("/Login")
                          }}
                          >
-                             <Link to="/login">Logout</Link>
+                             <Link to="/Login">Logout</Link>
                          </li>
                     ) : (
                     <li className="nav-list-item">
@@ -76,9 +72,9 @@ const NavBar = (props) => {
                 </ul>
         </Toolbar>
       </AppBar>
-    {checkAuth() && (
+    {/* {checkAuth() && (
       <h4>Welcome, {props.user}</h4>
-    )}
+    )} */}
     </div>
   </React.Fragment>
   );
