@@ -1,10 +1,11 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { createStyles, makeStyles} from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
 import { Link } from 'react-router-dom'
+// import NavBar from '../Containers/NavBar'
 // import Button from '@material-ui/core/Button'
 import { checkAuth } from '../checkAuth'
 
@@ -28,9 +29,16 @@ const useStyles = makeStyles(() =>
 const NavBar = (props) => {
   const classes = useStyles();
 
+  useEffect(() => {
+    console.log(typeof props.user);
+    console.log(checkAuth())
+  });
+
+
   return (
+    <React.Fragment>
     <div className={classes.root}>
-      <AppBar position="static">
+      <AppBar position="relative">
         <Toolbar>
           <IconButton
             edge="start"
@@ -56,7 +64,8 @@ const NavBar = (props) => {
                          onClick={() => {
                              document.cookie = "loggedIn="
                              window.location.replace("/login")
-                         }} >
+                         }}
+                         >
                              <Link to="/login">Logout</Link>
                          </li>
                     ) : (
@@ -71,6 +80,7 @@ const NavBar = (props) => {
       <h4>Welcome, {props.user}</h4>
     )}
     </div>
+  </React.Fragment>
   );
 }
 

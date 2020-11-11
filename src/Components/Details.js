@@ -30,7 +30,10 @@ export default function Listings({listings, match}) {
       <Typography variant="body1" gutterBottom>
       {listing.description}
       </Typography>
-      <GoogleMapsContainer className="map" />
+      <GoogleMapsContainer className="map"
+      lat={listing.lat}
+      lng={listing.lng}
+      listing={listing} />
     </div>
   );
 }

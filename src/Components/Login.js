@@ -1,16 +1,8 @@
 import React, { useState } from 'react';
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
-// import AddListing from "./AddListing"
 
-// class Login extends Component {
-//   constructor(props) {
-//     super(props);
 
-//     this.state = {
-//       loggedIn: false,
-//     }
-//   }
 
 const Login = (props) => {
   const [user, setUser] = useState("");
@@ -32,6 +24,7 @@ const Login = (props) => {
       return (
         <div className="App">
           <div className="login">
+          <form className="login-form" onSubmit={handleClick}>
               <TextField
                 required 
                 onChange={handleChange}
@@ -53,12 +46,13 @@ const Login = (props) => {
                 color="white"
               ></TextField>
               <Button
-                onClick={handleClick}
                 variant="contained"
                 color="primary"
+                type="submit"
               >
                 Login
               </Button>
+              </form>
             </div>
         </div>
       )

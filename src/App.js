@@ -4,19 +4,18 @@ import { BrowserRouter } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import store from "./Redux/Store"
 // import Login from './Components/Login'
-import NavBar from './Components/NavBar'
+import NavBar from './Containers/NavBar'
 import Router from './Router'
+import "./App.css";
 
-require('dotenv').config()
+// require('dotenv').config()
 
 function App() {
   return (
     <div className="App">
     <Provider store={store}>
       <BrowserRouter>
-        <div>
         <NavBar />
-        </div>
         <Router />
         </BrowserRouter>
     </Provider>
