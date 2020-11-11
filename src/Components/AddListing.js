@@ -29,13 +29,13 @@ class AddListing extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault()
-        // const payload = { ...this.state }
+        const listing = { ...this.state }
         // payload.id = this.props.carTotal + 1
         // delete payload.open
         // console.log("THE RESTAURANT", payload)
         // add this.props.addCar function here
         // also add this.setState to close the dialog
-        // this.props.addListing(payload)
+        this.props.addListing(listing)
         this.setState({ open: false })
     }
 

@@ -6,7 +6,7 @@ import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
 import { Link } from 'react-router-dom'
 // import Button from '@material-ui/core/Button'
-import { checkAuth } from '../Router'
+import { checkAuth } from '../checkAuth'
 
 const useStyles = makeStyles(() =>
   createStyles({
@@ -67,10 +67,11 @@ const NavBar = (props) => {
                 </ul>
         </Toolbar>
       </AppBar>
+    {checkAuth() && (
+      <h4>Welcome, {props.user}</h4>
+    )}
     </div>
   );
 }
 
 export default NavBar
-
-// AIzaSyAiMSwNMRRQIhoo1ROxOCfyvWwThoZUjjg

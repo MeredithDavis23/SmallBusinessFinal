@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Switch, Route, Redirect } from 'react-router'
 import Login from './Containers/Login'
 import cookie from "cookie";
@@ -27,8 +27,8 @@ const Router = () => {
         <Switch>
             <Route exact path="/" component={Listing} />
             <Route path="/Login" component={Login} />
-            <ProtectedRoute path="/AddListing" component={AddListing} />
             <Route path="/Details/:id" component={Details} />
+            <ProtectedRoute path="/AddListing" component={AddListing} />
         </Switch>
     );
 };

@@ -1,31 +1,40 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
-import AddListing from "./AddListing"
+// import AddListing from "./AddListing"
 
-class Login extends Component {
-  constructor(props) {
-    super(props);
+// class Login extends Component {
+//   constructor(props) {
+//     super(props);
 
-    this.state = {
-      loggedIn: false,
+//     this.state = {
+//       loggedIn: false,
+//     }
+//   }
+
+const Login = (props) => {
+  const [user, setUser] = useState("");
+
+  const handleChange = (e) => {
+    if (e.target.name === "user") {
+      setUser(e.target.value);
+    } else {
+      // setPassword(evt.target.value);
     }
-  }
-    handleClick = (e) => {
+  };
+    const handleClick = (e) => {
     e.preventDefault()
-    document.cookie = "loggedIn=true;max-age=60*1000";
-      this.setState({
-        loggedIn: true,
-      })
+    document.cookie = "loggedIn=true; max-age=60*1000";
+    props.userLogin(user)
+    props.history.push("/")
     }
-    render() {
-      if(this.state.loggedIn === true) {
-        return <AddListing />
-      }
+
       return (
         <div className="App">
           <div className="login">
               <TextField
+                required 
+                onChange={handleChange}
                 className="username"
                 id="username"
                 placeholder="username"
@@ -33,6 +42,8 @@ class Login extends Component {
                 variant="outlined"
               ></TextField>
               <TextField
+               required 
+               onChange={handleChange}
                 className="password"
                 id="password"
                 placeholder="password"
@@ -42,7 +53,7 @@ class Login extends Component {
                 color="white"
               ></TextField>
               <Button
-                onClick={this.handleClick}
+                onClick={handleClick}
                 variant="contained"
                 color="primary"
               >
@@ -50,10 +61,7 @@ class Login extends Component {
               </Button>
             </div>
         </div>
-      );
-      }
+      )
     }
-  
-  export default Login
-    
 
+  export default Login

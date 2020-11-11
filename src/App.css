@@ -62,3 +62,23 @@ a {
   width: fit-content;
   margin-top: 20px;
 }
+
+.listingLink {
+  text-decoration: underline;
+}
+
+#details {
+  padding: 20px;
+  margin-top: 20px;
+}
+
+/* .map {
+  padding-left: auto;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  margin: auto;
+  width: auto;
+  height: auto;
+} */
