@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
+import Marker from './Marker'
  
-const AnyReactComponent = ({ text }) => <div>{text}</div>;
+// const AnyReactComponent = ({ text }) => <div>{text}</div>;
  
 class GoogleMapsContainer extends Component {
   static defaultProps = {
@@ -11,7 +12,8 @@ class GoogleMapsContainer extends Component {
     },
     zoom: 11
   };
- 
+  // const [selectedBusiness, setSelectedBusiness] = React.useState(null);
+
   render() {
     return (
       // Important! Always set the container height explicitly
@@ -22,10 +24,12 @@ class GoogleMapsContainer extends Component {
           defaultCenter={this.props.center}
           defaultZoom={this.props.zoom}
         >
-          <AnyReactComponent
+    
+          <Marker
             lat={this.props.lat}
             lng={this.props.lng}
             text="My Marker"
+            color="blue"
           />
         </GoogleMapReact>
       </div>
